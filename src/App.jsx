@@ -5,6 +5,7 @@ import { Layout } from "./Layout.jsx";
 import { Home } from "./Pages/Home.jsx";
 import "./App.css";
 import { ReportView } from "./Pages/ReportGeneration/ReportView.jsx";
+import { VotingView } from "./Pages/VoterVerification_UI/VoterView.jsx";
 import { ResultView } from "./Pages/ReportGeneration/ResultView.jsx";
 import { DistrictResultView } from "./Pages/ReportGeneration/DistrictResult.jsx";
 import NewHome from "./Pages/Home_New.jsx";
@@ -18,7 +19,7 @@ import GramaNiladhariRoutes from "./Routes/GramaNiladhariRoutes.jsx";
 import VerificationOfficerRoutes from "./Routes/VerificationOfficerRoutes.jsx";
 import VotingRoutes from "./Routes/VotingRoutes.jsx";
 import VoterRoutes from "./Routes/VoterRoutes.jsx";
-import PollingStation from "./Routes/PollingStation.jsx";
+import GovernmentOfficerPortalRoutes from "./Routes/GovernmentOfficerPortalRoutes";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ function App() {
                             <Route path="election/result" element={<ResultView />} />
                             <Route path="election/result/district/:District" element={<DistrictResultView />} />
                             <Route path="reports/View" element={<ReportView />} />
+                            <Route path="poling_station/voter_verification" element={<VotingView />} />
 
                             {/* Include nested route components */}
                             <Route path="/VoterRegistration" element={<QueryClientProvider client={queryClient}> <VoterRegistration_1/> </QueryClientProvider>} />
@@ -47,7 +49,7 @@ function App() {
                             {VotingRoutes()}
                             {GramaNiladhariRoutes()}
                             {VerificationOfficerRoutes()}
-                            {PollingStation()}
+                            {GovernmentOfficerPortalRoutes()}
                             <Route path="*" element={<h1>PAGE NOT FOUND</h1>} />
                         </Route>
                     </Routes>
